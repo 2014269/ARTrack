@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1 class="my-3">Originals</h1>
+</header>
+<section>
+    <div class="shadow p-3 mx-3 mb-4 bg-light rounded">
+    <div class="list-group my-3">
+        {% for original in originals %}
+            <div class="list-group-item">
+                <h4>{{ original.title }}</h4>
+                <a href="{{ url_for('originals.details_original', original_id=original._id) }}">
+                    Details
+                </a>
+                <a> | </a>
+                <a href="{{ url_for('originals.edit_original', original_id=original._id) }}">
+                    Edit
+                </a>
+                <a> | </a>
+                <a class="text-danger" href="{{ url_for('originals.delete_original', original_id=original._id) }}">
+                    Delete
+                </a>
+            </div>
+{% endfor %}
+    </div>
+
+    <a class="btn btn-primary" href="{{ url_for('originals.new_original') }}">Add New</a>
+    </div>
+</section>
+{% endblock %}
