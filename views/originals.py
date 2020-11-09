@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from models.original import Original
-
+from flask import session
 original_blueprint = Blueprint("originals", __name__)
 
 

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <h1 class="my-3">Log in</h1>
+</header>
+<section class="login-form">
+
+    <div class="shadow p-3 mx-3 mb-4 bg-light rounded">
+        <form method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                <!--                    <small id="emailHelp" class="form-text text-muted">-->
+                <!--                        Enter the email of the original-->
+                <!--                    </small>-->
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       aria-describedby="passwordHelp">
+                <!--                    <small id="passwordHelp" class="form-text text-muted">-->
+                <!--                        Enter the Medium of the original-->
+                <!--                    </small>-->
+            </div>
+
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+    </div>
+    <!--        Generic Field-->
+    <!--        <div class="form-group col-md-6">-->
+    <!--            <label for="sample">Field Title</label>-->
+    <!--            <input type="text" class="form-control" id="sample" name="sample" placeholder="sample_placeholder"-->
+    <!--                   aria-describedby="sampleHelp">-->
+    <!--            <small id="sampleHelp" class="form-text text-muted">-->
+    <!--                Sample Help Text-->
+    <!--            </small>-->
+    <!--        </div>-->
+    <!--        End Generic Field-->
+
+
+</section>
+{% endblock %}
