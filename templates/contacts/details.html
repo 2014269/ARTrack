@@ -2,32 +2,23 @@
 
 {% block content %}
 <header>
-    <h1 class="my-3">{{ original.title }}</h1>
+    <h1 class="my-3">{{ contact.name_first }} {{ contact.name_last }}</h1>
 </header>
 <section>
     <div class="shadow p-3 mb-5 bg-light rounded">
         <dl class="row">
-            <dt class="col-sm-2">Title</dt>
-            <dd class="col-sm-10">{{ original.title }}</dd>
-            <dt class="col-sm-2">Medium</dt>
-            <dd class="col-sm-10">{{ original.medium }}</dd>
-            <dt class="col-sm-2">Dimensions</dt>
-            <dd class="col-sm-10">{{ original.dimensions }}</dd>
-            <dt class="col-sm-2">Price</dt>
-            <dd class="col-sm-10">{{ original.price }}</dd>
-            <dt class="col-sm-2">Date Created</dt>
-            <dd class="col-sm-10">{{ original.date_created }}</dd>
-            <dt class="col-sm-2">Status</dt>
-            <dd class="col-sm-10">{{ original.status }}</dd>
-            <dt class="col-sm-2">Possession</dt>
-            <dd class="col-sm-10">{{ original.possession }}</dd>
-            <dt class="col-sm-2">Has Prints</dt>
-            <dd class="col-sm-10">{{ original.has_prints }}</dd>
-            <dt class="col-sm-2">Is Commission</dt>
-            <dd class="col-sm-10">{{ original.is_commission }}</dd>
-
+            <dt class="col-sm-2">First Name</dt>
+            <dd class="col-sm-10">{{ contact.name_first }}</dd>
+            <dt class="col-sm-2">Last Name</dt>
+            <dd class="col-sm-10">{{ contact.name_last }}</dd>
+            <dt class="col-sm-2">Phone</dt>
+            <dd class="col-sm-10">{{ contact.phone }}</dd>
+            <dt class="col-sm-2">Email</dt>
+            <dd class="col-sm-10">{{ contact.email }}</dd>
+            <dt class="col-sm-2">Address</dt>
+            <dd class="col-sm-10">{{ contact.address }}</dd>
         </dl>
-        <a class="btn btn-secondary" href="{{ url_for('originals.edit_original', original_id=original._id) }}">Edit {{ original.title }}</a>
+        <a class="btn btn-secondary" href="{{ url_for('contacts.edit_contact', contact_id=contact._id) }}">Edit {{ contact.name_first }}</a>
     </div>
     <a class="btn btn-primary" href="{{ url_for('.index') }}">Back</a>
 </section>

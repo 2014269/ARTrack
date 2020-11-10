@@ -2,30 +2,30 @@
 
 {% block content %}
 <header>
-    <h1 class="my-3">Originals</h1>
+    <h1 class="my-3">Contacts</h1>
 </header>
 <section>
     <div class="shadow p-3 mx-3 mb-4 bg-light rounded">
     <div class="list-group my-3">
-        {% for original in originals %}
+        {% for contact in contacts %}
             <div class="list-group-item">
-                <h4>{{ original.title }}</h4>
-                <a href="{{ url_for('originals.details_original', original_id=original._id) }}">
+                <h4>{{ contact.name_first }} {{ contact.name_last }}</h4>
+                <a href="{{ url_for('contacts.details_contact', contact_id=contact._id) }}">
                     Details
                 </a>
                 <a> | </a>
-                <a href="{{ url_for('originals.edit_original', original_id=original._id) }}">
+                <a href="{{ url_for('contacts.edit_contact', contact_id=contact._id) }}">
                     Edit
                 </a>
                 <a> | </a>
-                <a class="text-danger" href="{{ url_for('originals.delete_original', original_id=original._id) }}">
+                <a class="text-danger" href="{{ url_for('contacts.delete_contact', contact_id=contact._id) }}">
                     Delete
                 </a>
             </div>
 {% endfor %}
     </div>
 
-    <a class="btn btn-primary" href="{{ url_for('originals.new_original') }}">Add New</a>
+    <a class="btn btn-primary" href="{{ url_for('contacts.new_contact') }}">Add New</a>
     </div>
 </section>
 {% endblock %}
