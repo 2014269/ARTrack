@@ -9,8 +9,8 @@ class Model(metaclass=ABCMeta):
     collection: str
     _id: str
 
-    # def __init__(self, *args, **kwargs):
-    #     pass
+    def __init__(self, *args, **kwargs):
+        pass
 
     def save_to_mongo(self):
         Database.update(self.collection, {"_id": self._id}, self.json())

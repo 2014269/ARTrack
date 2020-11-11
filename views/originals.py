@@ -1,8 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from models.original import Original
 from flask import session
 from models.user import requires_login
-
 
 
 original_blueprint = Blueprint("originals", __name__)
@@ -13,7 +12,6 @@ original_blueprint = Blueprint("originals", __name__)
 def index():
     originals = Original.find_many_by('user_email', session['email'])
     return render_template("originals/index.html", originals=originals)
-
 
 
 @original_blueprint.route("/new", methods=['GET', 'POST'])
@@ -45,7 +43,7 @@ def new_original():
                  user_email).save_to_mongo()
 
         # Future: some sort of confirmation that this worked
-
+        flash(f"{title} successfully added to your collection.", 'success')
     return render_template("originals/new_original.html")
 
 

@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from models.original import Original
 from models.contact import Contact
-from flask import session
+from flask import session, flash
 from models.user import requires_login
 
 contact_blueprint = Blueprint("contacts", __name__)
@@ -34,7 +34,8 @@ def new_contact():
                 address,
                 user_email).save_to_mongo()
 
-        # Future: some sort of confirmation that this worked
+        #Success notification
+        flash(f"{name_first} {name_last} successfully added to your contact list.", 'success')
 
     return render_template("contacts/new_contact.html")
 
