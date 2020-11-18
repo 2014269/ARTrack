@@ -34,7 +34,7 @@ def new_contact():
                 address,
                 user_email).save_to_mongo()
 
-        #Success notification
+        # Success notification
         flash(f"{name_first} {name_last} successfully added to your contact list.", 'success')
 
     return render_template("contacts/new_contact.html")

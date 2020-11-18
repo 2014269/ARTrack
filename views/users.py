@@ -19,6 +19,7 @@ def register_user():
 
     return render_template('users/register.html')
 
+
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login_user():
     if request.method == 'POST':
@@ -33,3 +34,9 @@ def login_user():
             return e.message
 
     return render_template('users/login.html')
+
+
+@user_blueprint.route('/logout')
+def logout():
+    session['email'] = None
+    return redirect('login')

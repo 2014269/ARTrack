@@ -7,10 +7,14 @@ from views.contacts import contact_blueprint
 
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
+app.config.update(
+    ADMIN=os.environ.get('ADMIN')
+)
 
 app.register_blueprint(original_blueprint, url_prefix="/originals")
 app.register_blueprint(user_blueprint, url_prefix="/users")
 app.register_blueprint(contact_blueprint, url_prefix='/contacts')
+
 
 @app.route('/')
 def landing():
